@@ -1,0 +1,29 @@
+<p>modified-calculator works!</p>
+<div>
+    <div class="input-group mb-3">
+        <label>loan amount:</label>
+        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"
+            (input)="changeamountRange($event, range1)" #rangeInput1>
+        <div class="input-group-append">
+            <span class="input-group-text">$</span>
+        </div>
+    </div>
+    <input type="range" step="100" min="0" max="1500" class="form-range" (input)="changeamountRange($event,rangeInput1)"
+        #range1>
+</div>
+<div>
+    <label for="numberOfInputs"> total amount sanctioned in months</label>
+    <input type="number" id="numberOfInputs" [(ngModel)]="numberofMonths" (input)="months()">
+    <div *ngFor="let arr of array2">
+        <P>amount sanctioned in {{arr}} month:</P>
+        <input type="number" >
+    </div>
+</div>
+<div>
+    <label for="numberOfInputs">amount want to be caluculated for persons:</label>
+    <input type="number" id="numberOfInputs" [(ngModel)]="numberOfInputs" (input)="inputs()">
+    <div *ngFor="let arr of array">
+        <P>initial amount paid by {{arr}} person:</P>
+        <input type="number">
+    </div>
+</div>`

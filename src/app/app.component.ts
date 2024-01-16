@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,10 +18,12 @@ export class AppComponent {
   monthcalculator:number = 0
   personCount:number = 0
   eachPerson:number = 0
+  another: boolean = true;
 
   ngOnInit(){
     // let percentageVAlue = ()
   }
+  constructor(private route:Router){}
   
   changeamountRange(value:any, range: HTMLInputElement) {
  
@@ -42,6 +45,7 @@ export class AppComponent {
   }
 
   total(){
+    
     console.log(this.updatedAmount,'45:')
    this.percentamount= (this.updatedPercentage/100)*this.updatedAmount
    this.totalamount = this.updatedAmount + this.percentamount
@@ -52,5 +56,9 @@ export class AppComponent {
 
   perPerson(){   
     this.eachPerson = (this.monthlyEmi/this.personCount)
+  }
+  modified(){
+    this.another = false
+    this.route.navigate(["/modified"])
   }
 }
